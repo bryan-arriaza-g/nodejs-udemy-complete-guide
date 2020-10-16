@@ -13,3 +13,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 6 : Working with Dynamic Content & Adding Templating Engines
 
 79. Templating Engines - An Overview
+80. Installing & Implementing Pug
