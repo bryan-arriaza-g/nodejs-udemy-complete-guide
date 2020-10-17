@@ -25,3 +25,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 88. Converting our Project to Handlebars
 89. Adding the Layout to Handlebars
 90. Working with EJS
+91. Working on the Layout with Partials
