@@ -17,3 +17,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 97. Adding Controllers
 98. Finishing the Controllers
 99. Adding a Product Model
+100.  Storing Data in Files Via the Model
