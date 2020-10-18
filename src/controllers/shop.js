@@ -10,9 +10,13 @@ exports.getProducts = (req, res) => {
   });
 };
 
-exports.getProductById = (req, res) => {
+exports.getProduct = (req, res) => {
   const prodId = req.params.productId;
-  console.log(prodId);
+  console.log(
+    Product.findById(prodId, (product) => {
+      console.log(product);
+    })
+  );
   res.redirect('/');
 };
 

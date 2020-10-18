@@ -5,5 +5,12 @@
     "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/8134AkhQJgL.jpg",
     "description": "The Lord of The Rings\r\nJ.R.R. Tolkien",
     "price": "29.99"
+  },
+  {
+    "title": "The complete software developers guide",
+    "imageUrl": "https://static1.squarespace.com/static/5e0129c5956b7a5624566864/t/5e0ed78eaf57813870f327ed/1595438291612/complete-software-dev-guide.jpg?format=1500w",
+    "description": "How to learn your next programming language, ace your programming interview, and land the coding job of your dreams",
+    "price": "35.00",
+    "id": "0.37965256388260515"
   }
 ]
