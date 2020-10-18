@@ -16,3 +16,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 115. Preparations
 116. Applied Changes
 117. Adding the Product ID to the Path
+118. Extracting Dynamic Params
