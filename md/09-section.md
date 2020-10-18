@@ -13,3 +13,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 9 : Dynamic Routes & Advanced Models
 
 114. Module Introduction
+115. Preparations
+116. Applied Changes

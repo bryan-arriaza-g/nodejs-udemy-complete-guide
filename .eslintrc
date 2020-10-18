@@ -11,6 +11,7 @@
   "rules": {
     "prettier/prettier": ["error"],
     "no-console": "off",
-    "no-unused-expressions": "warn"
+    "no-unused-expressions": "warn",
+    "no-undef": "warn"
   }
 }
