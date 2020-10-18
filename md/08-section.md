@@ -13,3 +13,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 8 : Optional: Enhancing the App
 
 105. Module Introduction
+106. Creating the Shop Structure
