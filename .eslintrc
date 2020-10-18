@@ -1,17 +1,9 @@
 {
-  "root": true,
-  "env": {
-    "es6": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2017
-  },
   "extends": ["airbnb-base", "prettier", "plugin:node/recommended"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"],
     "no-console": "off",
-    "no-unused-expressions": "warn",
-    "no-undef": "warn"
+    "node/no-unsupported-features/es-syntax": "off"
   }
 }
