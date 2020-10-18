@@ -10,7 +10,7 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 
 ## Content
 
-### Sección 7:The Model View Controller (MVC)
+### Sección 7 : The Model View Controller (MVC)
 
 95. Module Introduction
 96. What is the MVC?

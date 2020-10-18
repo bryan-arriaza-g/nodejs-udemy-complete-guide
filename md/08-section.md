@@ -10,6 +10,6 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 
 ## Content
 
-- #### Sección 6 : Working with Dynamic Content & Adding Templating Engines
-- #### Sección 7 : The Model View Controller (MVC)
-- #### Sección 8 : Optional: Enhancing the App
+### Sección 8 : Optional: Enhancing the App
+
+105. Module Introduction
