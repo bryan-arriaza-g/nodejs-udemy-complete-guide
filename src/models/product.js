@@ -16,18 +16,18 @@ module.exports = class Product {
         products = JSON.parse(data);
       }
       products.push(this);
-      fs.writeFile(pathDir, JSON.stringify(products), (errWrite) => {
+      fs.writeFileSync(pathDir, JSON.stringify(products), (errWrite) => {
         console.error(errWrite);
       });
     });
   }
 
-  static fetchAll() {
+  static fetchAll(cb) {
     fs.readFile(pathDir, (err, data) => {
-      if (!err) {
-        return [];
+      if (err) {
+        cb([]);
       }
-      return [...JSON.parse(data)];
+      cb(JSON.parse(data));
     });
   }
 };
