@@ -19,3 +19,6 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 99. Adding a Product Model
 100.  Storing Data in Files Via the Model
 101.  Fetching Data from Files Via the Model
+102.  Refactoring the File Storage Code
+103.  Wrap Up
+104.  Useful Resources & Links
