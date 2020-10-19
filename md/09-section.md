@@ -23,3 +23,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 122. Adding a Cart Model
 123. Using Query Params
 124. Pre-Populating the Edit Product Page with Data
+125. Linking to the Edit Page
