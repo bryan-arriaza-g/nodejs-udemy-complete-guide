@@ -29,16 +29,25 @@ module.exports = class Product {
         const existingProductIndex = products.findIndex((prod) => prod.id === this.id);
         const updatedProducts = [...products];
         updatedProducts[existingProductIndex] = this;
-        fs.writeFileSync(pathDir, JSON.stringify(updatedProducts), (errWrite) => {
+        fs.writeFile(pathDir, JSON.stringify(updatedProducts), (errWrite) => {
           console.error(errWrite);
         });
       } else {
         this.id = Math.random().toString();
         products.push(this);
-        fs.writeFileSync(pathDir, JSON.stringify(products), (errWrite) => {
+        fs.writeFile(pathDir, JSON.stringify(products), (errWrite) => {
           console.error(errWrite);
         });
       }
+    });
+  }
+
+  static delete(productId) {
+    getProductsFromFile((products) => {
+      const updatedProducts = products.filter((prod) => prod.id !== productId);
+      fs.writeFile(pathDir, JSON.stringify(updatedProducts), (errWrite) => {
+        console.error(errWrite);
+      });
     });
   }
 

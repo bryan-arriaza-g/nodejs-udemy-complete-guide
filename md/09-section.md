@@ -25,3 +25,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 124. Pre-Populating the Edit Product Page with Data
 125. Linking to the Edit Page
 126. Editing the Product Data
+127. Adding the Product-Delete Functionality
