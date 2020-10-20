@@ -29,3 +29,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 128. Deleting Cart Items
 129. Displaying Cart Items on the Cart Page
 130. Deleting Cart Items
+131. Fixing a Delete Product Bug
