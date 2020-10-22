@@ -20,3 +20,9 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 139. Connecting our App to the SQL Database
 140. Basic SQL & Creating a Table
 141. Retrieving Data
+142. Fetching Products
+143. Fetching Products - Time to Practice
+144. Inserting Data Into the Database
+145. Fetching a Single Product with the "where" Condition
+146. Wrap Up
+147. Useful Resources & Links

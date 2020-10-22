@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const db = require('./util/database');
 const rootDir = require('./util/path');
 
 const adminRoutes = require('./routes/admin');
@@ -13,14 +12,6 @@ const start = async () => {
   const port = 3000;
 
   const app = express();
-
-  db.execute('SELECT * FROM products')
-    .then((result) => {
-      console.log(result[0]);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
 
   app.set('view engine', 'ejs');
   app.set('views', 'views');

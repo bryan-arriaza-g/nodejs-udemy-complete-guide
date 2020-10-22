@@ -1,1 +1,1 @@
-{ "products": [], "totalPrice": -10 }
+{ "products": [{ "id": "1", "quantity": 3 }], "totalPrice": null }
