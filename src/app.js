@@ -14,7 +14,7 @@ const start = async () => {
 
   const app = express();
 
-  db.execute('SELECT * FROM products;');
+  db.execute('SELECT * FROM products').then().catch();
 
   app.set('view engine', 'ejs');
   app.set('views', 'views');
