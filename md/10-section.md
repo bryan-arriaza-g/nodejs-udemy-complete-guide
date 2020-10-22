@@ -17,3 +17,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 136. NoSQL Introduction
 137. Comparing SQL and NoSQL
 138. Setting Up MySQL
+139. Connecting our App to the SQL Database
