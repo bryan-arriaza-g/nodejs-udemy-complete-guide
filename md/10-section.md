@@ -13,3 +13,7 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 10 : SQL Introduction
 
 134. Module Introduction
+135. Choosing a Database
+136. NoSQL Introduction
+137. Comparing SQL and NoSQL
+138. Setting Up MySQL
