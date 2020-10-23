@@ -17,3 +17,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 150. Connecting to the Database
 151. Defining a Model
 152. Syncing JS Definitions to the Database
+153. Inserting Data & Creating a Product

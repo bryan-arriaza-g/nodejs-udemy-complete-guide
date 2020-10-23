@@ -10,13 +10,12 @@ exports.getAddProduct = (req, res) => {
 
 exports.postAddProduct = (req, res) => {
   const { title, imageUrl, price, description } = req.body;
-  const product = new Product(null, title, imageUrl, description, price);
-  product
-    .save()
+  Product.create({ title, price, imageUrl, description })
     .then(() => {
-      res.redirect('/');
+      console.log('Created Product !!!');
+      res.redirect('/admin/add-product');
     })
-    .catch((err) => console.error(err));
+    .catch(console.error);
 };
 
 exports.getEditProduct = (req, res) => {
