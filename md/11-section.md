@@ -20,3 +20,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 153. Inserting Data & Creating a Product
 154. MUST READ: findById() in Sequelize 5
 155. Retrieving Data & Finding Products
+156. Getting a Single Product with the "where" Condition
