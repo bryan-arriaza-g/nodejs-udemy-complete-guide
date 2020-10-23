@@ -23,3 +23,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 156. Getting a Single Product with the "where" Condition
 157. Fetching Admin Products
 158. Updating Products
+159. Deleting Products
