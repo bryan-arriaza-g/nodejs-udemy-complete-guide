@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const sequelize = require('./util/database');
 
 const rootDir = require('./util/path');
 
@@ -23,9 +24,17 @@ const start = async () => {
   app.use(shopRoutes);
 
   app.use('/', errorController.get404);
-  app.listen(port, () => {
-    console.log(`Listening on port ${port}!!!!!!!!`);
-  });
+
+  // Sequelize
+  sequelize
+    .sync()
+    .then((result) => {
+      console.log(result);
+      app.listen(port, () => {
+        console.log(`Listening on port ${port}!!!!!!!!`);
+      });
+    })
+    .catch(console.error);
 };
 
 start();
