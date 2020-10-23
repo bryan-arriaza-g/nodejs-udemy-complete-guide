@@ -25,6 +25,14 @@ const start = async () => {
 
   app.use('/admin', adminRoutes);
   app.use(shopRoutes);
+  app.use((req, res, next) => {
+    User.findByPk(1)
+      .then((user) => {
+        req.user = user;
+        next();
+      })
+      .catch(console.error);
+  });
 
   app.use('/', errorController.get404);
 
@@ -34,7 +42,16 @@ const start = async () => {
 
   // Sequelize
   sequelize
-    .sync({ force: false })
+    .sync()
+    .then(() => {
+      return User.findByPk(1);
+    })
+    .then((user) => {
+      if (!user) {
+        return User.create({ name: 'barriaza', email: 'bryan.arriaza.g@gmail.com' });
+      }
+      return user;
+    })
     .then(() => {
       app.listen(port, () => {
         console.log(`Listening on port ${port}!!!!!!!!`);
