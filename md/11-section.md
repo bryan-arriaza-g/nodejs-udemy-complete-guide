@@ -14,3 +14,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 
 148. Module Introduction
 149. What is Sequelize?
+150. Connecting to the Database
