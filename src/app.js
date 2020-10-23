@@ -1,7 +1,10 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const sequelize = require('./util/database');
+const Product = require('./models/product');
+const User = require('./models/user');
 
 const rootDir = require('./util/path');
 
@@ -25,11 +28,14 @@ const start = async () => {
 
   app.use('/', errorController.get404);
 
+  // Relations
+  Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
+  User.hasMany(Product);
+
   // Sequelize
   sequelize
-    .sync()
-    .then((result) => {
-      console.log(result);
+    .sync({ force: false })
+    .then(() => {
       app.listen(port, () => {
         console.log(`Listening on port ${port}!!!!!!!!`);
       });
