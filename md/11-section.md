@@ -28,3 +28,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 161. Adding a One-To-Many Relationship
 162. Creating & Managing a Dummy User
 163. Using Magic Association Methods
+164. Fetching Related Products
