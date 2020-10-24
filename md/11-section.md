@@ -36,3 +36,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 169. Deleting Related Items & Deleting Cart Products
 170. Adding an Order Model
 171. Storing Cartitems as Orderitems
+172. Resetting the Cart & Fetching and Outputting Orders
