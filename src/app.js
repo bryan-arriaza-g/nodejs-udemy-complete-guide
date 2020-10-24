@@ -11,6 +11,8 @@ const rootDir = require('./util/path');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const errorController = require('./controllers/error');
+const Cart = require('./models/cart');
+const CartItem = require('./models/cart-item');
 
 const start = async () => {
   const port = 3000;
@@ -40,6 +42,10 @@ const start = async () => {
   // Relations
   Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
   User.hasMany(Product);
+  User.hasOne(Cart);
+  Cart.belongsTo(User);
+  Cart.belongsToMany(Product, { through: CartItem });
+  Product.belongsToMany(Cart, { through: CartItem });
 
   // Sequelize
   sequelize
