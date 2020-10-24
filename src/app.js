@@ -23,8 +23,6 @@ const start = async () => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(express.static(path.join(rootDir, '..', 'public')));
 
-  app.use('/admin', adminRoutes);
-  app.use(shopRoutes);
   app.use((req, res, next) => {
     User.findByPk(1)
       .then((user) => {
@@ -33,6 +31,9 @@ const start = async () => {
       })
       .catch(console.error);
   });
+
+  app.use('/admin', adminRoutes);
+  app.use(shopRoutes);
 
   app.use('/', errorController.get404);
 
