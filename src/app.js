@@ -59,6 +59,9 @@ const start = async () => {
       }
       return user;
     })
+    .then((user) => {
+      return user.createCart();
+    })
     .then(() => {
       app.listen(port, () => {
         console.log(`Listening on port ${port}!!!!!!!!`);

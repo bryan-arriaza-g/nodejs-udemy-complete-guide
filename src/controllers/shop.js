@@ -40,24 +40,21 @@ exports.getIndex = (req, res) => {
 };
 
 exports.getCart = (req, res) => {
-  Cart.getCart((cart) => {
-    Product.fetchAll()
-      .then(([products]) => {
-        const cartProducts = [];
-        products.forEach((product) => {
-          const cartProductData = cart.products.find((prod) => prod.id === product.id);
-          if (cartProductData) {
-            cartProducts.push({ productData: product, quantity: cartProductData.quantity });
-          }
-        });
-        res.render('shop/cart', {
-          path: '/cart',
-          pageTitle: 'Your Cart',
-          products: cartProducts,
-        });
-      })
-      .catch((err) => console.error(err));
-  });
+  req.user
+    .getCart()
+    .then((cart) => {
+      return cart
+        .getProducts()
+        .then((cartProducts) => {
+          res.render('shop/cart', {
+            path: '/cart',
+            pageTitle: 'Your Cart',
+            products: cartProducts,
+          });
+        })
+        .catch((err) => console.error(err));
+    })
+    .catch((err) => console.error(err));
 };
 
 exports.postCart = (req, res) => {
