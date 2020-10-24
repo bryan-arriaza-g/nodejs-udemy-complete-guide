@@ -65,7 +65,14 @@ const start = async () => {
       return user;
     })
     .then((user) => {
-      return user.createCart();
+      Cart.findAll({ where: { userId: user.id } })
+        .then((cart) => {
+          if (cart.length > 0) {
+            return user;
+          }
+          return user.createCart();
+        })
+        .catch(console.error);
     })
     .then(() => {
       app.listen(port, () => {

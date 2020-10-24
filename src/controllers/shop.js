@@ -105,6 +105,32 @@ exports.postCartDeleteProduct = (req, res) => {
     .catch((err) => console.error(err));
 };
 
+exports.postOrder = (req, res) => {
+  req.user
+    .getCart()
+    .then((cart) => {
+      return cart.getProducts();
+    })
+    .then((products) => {
+      return req.user
+        .createOrder()
+        .then((order) => {
+          return order.addProduct(
+            products.map((productInfo) => {
+              const product = productInfo;
+              product.orderItem = { quantity: product.cartItem.quantity };
+              return product;
+            })
+          );
+        })
+        .catch((err) => console.error(err));
+    })
+    .then(() => {
+      res.redirect('/orders');
+    })
+    .catch((err) => console.error(err));
+};
+
 exports.getOrders = (req, res) => {
   res.render('shop/orders', {
     path: '/orders',
