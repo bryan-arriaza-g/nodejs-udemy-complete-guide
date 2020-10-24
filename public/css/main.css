@@ -24,7 +24,7 @@ form {
 }
 
 .image {
-  height: 35rem;
+  height: 20rem;
 }
 
 .image img {
@@ -177,21 +177,6 @@ form {
   width: 100%;
 }
 
-.card__image_detail {
-  width: 80%;
-  align-items: center;
-  height: 50vh;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.card__image_detail img {
-  width: 80%;
-  align-items: center;
-  height: 50vh;
-}
-
 .card__actions {
   padding: 1rem;
   text-align: center;
@@ -217,6 +202,17 @@ form {
 .btn:hover,
 .btn:active {
   background-color: #00695c;
+  color: white;
+}
+
+.btn.danger {
+  color: red;
+  border-color: red;
+}
+
+.btn.danger:hover,
+.btn.danger:active {
+  background: red;
   color: white;
 }
 
