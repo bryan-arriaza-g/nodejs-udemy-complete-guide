@@ -37,3 +37,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 170. Adding an Order Model
 171. Storing Cartitems as Orderitems
 172. Resetting the Cart & Fetching and Outputting Orders
+173. Wrap Up
+174. Useful Resources & Links
