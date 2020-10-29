@@ -16,3 +16,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 - #### Sección 9 : Dynamic Routes & Advanced Models
 - #### Sección 10 : SQL Introduction
 - #### Sección 11 : Understanding Sequelize
+- #### Sección 12 : Working with NoSQL & Using MongoDB
