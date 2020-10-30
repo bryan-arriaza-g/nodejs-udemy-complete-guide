@@ -24,3 +24,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 184. Understanding the MongoDB Compass
 185. Fetching All Products
 186. Fetching a Single Product
+187. Making the "Edit" & "Delete" Buttons Work Again

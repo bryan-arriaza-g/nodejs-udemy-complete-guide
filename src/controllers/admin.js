@@ -75,15 +75,14 @@ exports.postAddProduct = (req, res) => {
 //     .catch((err) => console.error(err));
 // };
 
-// exports.getProducts = (req, res) => {
-//   req.user
-//     .getProducts()
-//     .then((products) => {
-//       res.render('admin/products', {
-//         prods: products,
-//         pageTitle: 'Admin Products',
-//         path: '/admin/products',
-//       });
-//     })
-//     .catch(console.error);
-// };
+exports.getProducts = (req, res) => {
+  Product.fetchAll()
+    .then((products) => {
+      res.render('admin/products', {
+        prods: products,
+        pageTitle: 'Admin Products',
+        path: '/admin/products',
+      });
+    })
+    .catch(console.error);
+};
