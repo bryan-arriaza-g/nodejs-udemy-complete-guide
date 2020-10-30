@@ -1,11 +1,11 @@
 const { getDB } = require('../util/database');
 
 class Product {
-  constructor(title, price, imageUrl, description) {
+  constructor(title, description, price, imageUrl) {
     this.title = title;
+    this.description = description;
     this.price = price;
     this.imageUrl = imageUrl;
-    this.description = description;
   }
 
   save() {
