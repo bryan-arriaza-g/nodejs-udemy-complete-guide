@@ -12,19 +12,19 @@ exports.getProducts = (req, res) => {
     .catch(console.error);
 };
 
-// exports.getProduct = (req, res) => {
-//   const { productId } = req.params;
-//   // By PK ID
-//   Product.findByPk(productId)
-//     .then((product) => {
-//       res.render('shop/product-detail', {
-//         product,
-//         pageTitle: product.title,
-//         path: '/products',
-//       });
-//     })
-//     .catch(console.error);
-// };
+exports.getProduct = (req, res) => {
+  const { productId } = req.params;
+  // By PK ID
+  Product.findById(productId)
+    .then((product) => {
+      res.render('shop/product-detail', {
+        product,
+        pageTitle: product.title,
+        path: '/products',
+      });
+    })
+    .catch(console.error);
+};
 
 exports.getIndex = (req, res) => {
   Product.fetchAll()
