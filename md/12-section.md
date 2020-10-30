@@ -29,3 +29,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 189. Finishing the "Update Product" Code
 190. One Note About Updating Products
 191. Deleting Products
+192. Fixing the "Add Product" Functionality

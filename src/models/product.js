@@ -7,18 +7,27 @@ class Product {
     this.description = description;
     this.price = price;
     this.imageUrl = imageUrl;
-    this._id = ObjectId(id);
+    this._id = id ? ObjectId(id) : null;
   }
 
   save() {
     const db = getDB();
+    const dataId = this._id;
     let dbOperation;
     if (this._id) {
       dbOperation = db.collection('products').updateOne({ _id: this._id }, { $set: this });
     } else {
       dbOperation = db.collection('products').insertOne(this);
     }
-    return dbOperation.then().catch(console.error);
+    return dbOperation
+      .then(() => {
+        if (dataId) {
+          console.log('Updated Product !!!');
+        } else {
+          console.log('Created Product !!!');
+        }
+      })
+      .catch(console.error);
   }
 
   static fetchAll() {
@@ -51,7 +60,7 @@ class Product {
       .collection('products')
       .deleteOne({ _id: ObjectId(prodId) })
       .then(() => {
-        console.log('Deleted');
+        console.log('Deleted Product !!!');
       })
       .catch(console.error);
   }
