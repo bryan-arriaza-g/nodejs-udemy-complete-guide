@@ -8,9 +8,9 @@ class Product {
     this.description = description;
   }
 
-  static save() {
+  save() {
     const db = getDB();
-    db.collection('products').insertOne(this).then(console.log).catch(console.error);
+    return db.collection('products').insertOne(this).then(console.log).catch(console.error);
   }
 }
 
