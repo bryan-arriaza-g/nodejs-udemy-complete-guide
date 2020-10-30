@@ -8,7 +8,7 @@ const rootDir = require('./util/path');
 const mongoConnect = require('./util/database');
 
 // Routes
-// const adminRoutes = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 // const shopRoutes = require('./routes/shop');
 const errorController = require('./controllers/error');
 
@@ -32,7 +32,7 @@ const start = async () => {
   //   .catch(console.error);
   //  });
 
-  // app.use('/admin', adminRoutes);
+  app.use('/admin', adminRoutes);
   // app.use(shopRoutes);
 
   app.use('/', errorController.get404);
