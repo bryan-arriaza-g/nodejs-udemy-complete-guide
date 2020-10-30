@@ -18,7 +18,7 @@ class Product {
     } else {
       dbOperation = db.collection('products').insertOne(this);
     }
-    return dbOperation.then(console.log).catch(console.error);
+    return dbOperation.then().catch(console.error);
   }
 
   static fetchAll() {
@@ -41,6 +41,17 @@ class Product {
       .next()
       .then((product) => {
         return product;
+      })
+      .catch(console.error);
+  }
+
+  static deleteById(prodId) {
+    const db = getDB();
+    return db
+      .collection('products')
+      .deleteOne({ _id: ObjectId(prodId) })
+      .then(() => {
+        console.log('Deleted');
       })
       .catch(console.error);
   }
