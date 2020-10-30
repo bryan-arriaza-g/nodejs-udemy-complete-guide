@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 // const User = require('./models/user');
 // Utils
 const rootDir = require('./util/path');
-const mongoConnect = require('./util/database');
+const { mongoConnect } = require('./util/database');
 
 // Routes
 const adminRoutes = require('./routes/admin');
@@ -23,14 +23,15 @@ const start = async () => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(express.static(path.join(rootDir, '..', 'public')));
 
-  //  app.use((req, res, next) => {
-  // User.findByPk(1)
-  //   .then((user) => {
-  //     req.user = user;
-  //     next();
-  //   })
-  //   .catch(console.error);
-  //  });
+  app.use((req, res, next) => {
+    // User.findByPk(1)
+    //   .then((user) => {
+    //     req.user = user;
+    //     next();
+    //   })
+    //   .catch(console.error);
+    next();
+  });
 
   app.use('/admin', adminRoutes);
   // app.use(shopRoutes);
