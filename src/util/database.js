@@ -1,5 +1,7 @@
 const mongodb = require('mongodb');
 
+let db;
+
 const { MongoClient } = mongodb;
 const mongoConnect = (callback) => {
   MongoClient.connect(
@@ -7,9 +9,21 @@ const mongoConnect = (callback) => {
   )
     .then((client) => {
       console.log('Connected !!!');
-      callback(client);
+      db = client.db();
+      callback();
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 };
 
-module.exports = mongoConnect;
+const getDB = () => {
+  if (db) {
+    return db;
+  }
+  throw String('No database found!');
+};
+
+exports.mongoConnect = mongoConnect;
+exports.getDB = getDB;

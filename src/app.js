@@ -37,8 +37,7 @@ const start = async () => {
 
   app.use('/', errorController.get404);
 
-  mongoConnect((client) => {
-    console.log(client);
+  mongoConnect(() => {
     app.listen(port, () => {
       console.log(`Listening on port ${port}!!!!!!!!`);
     });
