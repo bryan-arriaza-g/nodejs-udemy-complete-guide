@@ -7,16 +7,14 @@ class Product {
     this.description = description;
     this.price = price;
     this.imageUrl = imageUrl;
-    this._id = id;
+    this._id = ObjectId(id);
   }
 
   save() {
     const db = getDB();
     let dbOperation;
     if (this._id) {
-      dbOperation = db
-        .collection('products')
-        .updateOne({ _id: ObjectId(this._id) }, { $set: this });
+      dbOperation = db.collection('products').updateOne({ _id: this._id }, { $set: this });
     } else {
       dbOperation = db.collection('products').insertOne(this);
     }
@@ -30,7 +28,6 @@ class Product {
       .find()
       .toArray()
       .then((products) => {
-        console.log(products);
         return products;
       })
       .catch(console.error);
@@ -43,7 +40,6 @@ class Product {
       .find({ _id: ObjectId(prodId) })
       .next()
       .then((product) => {
-        console.log(product);
         return product;
       })
       .catch(console.error);

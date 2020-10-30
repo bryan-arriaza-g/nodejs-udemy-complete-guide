@@ -27,3 +27,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 187. Making the "Edit" & "Delete" Buttons Work Again
 188. Working on the Product Model to Edit our Product
 189. Finishing the "Update Product" Code
+190. One Note About Updating Products
