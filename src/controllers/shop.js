@@ -55,41 +55,10 @@ exports.postCart = (req, res) => {
   const { productId } = req.body;
   Product.findById(productId)
     .then((product) => {
-      return req.user.addToCart(product);
-    })
-    .then(() => {
+      req.user.addToCart(product);
       res.redirect('/cart');
     })
     .catch(console.error);
-
-  //   let fetchedCart;
-  //   let quantity = 1;
-  //   req.user
-  //     .getCart()
-  //     .then((cart) => {
-  //       fetchedCart = cart;
-  //       return cart.getProducts({ where: { id: productId } });
-  //     })
-  //     .then((products) => {
-  //       let product;
-  //       if (products.length > 0) {
-  //         const { 0: productInfo } = products;
-  //         product = productInfo;
-  //       }
-  //       if (product) {
-  //         const oldQuantity = product.cartItem.quantity;
-  //         quantity = oldQuantity + 1;
-  //         return product;
-  //       }
-  //       return Product.findByPk(productId);
-  //     })
-  //     .then((product) => {
-  //       return fetchedCart.addProduct(product, { through: { quantity } });
-  //     })
-  //     .then(() => {
-  //       res.redirect('/cart');
-  //     })
-  //     .catch((err) => console.error(err));
 };
 
 // exports.postCartDeleteProduct = (req, res) => {
