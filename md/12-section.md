@@ -41,3 +41,7 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 201. Adding an Order
 202. Adding Relational Order Data
 203. Getting Orders
+204. Removing Deleted Items From the Cart
+205. Wrap Up
+206. Useful Resources & Links
+207. Two Adjustments (behind the scenes)
