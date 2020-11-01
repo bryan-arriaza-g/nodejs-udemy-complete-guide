@@ -88,10 +88,13 @@ class User {
       });
   }
 
-  // getOrders() {
-  //   const db = getDB();
-  //   return db.collection('orders');
-  // }
+  getOrders() {
+    const db = getDB();
+    return db
+      .collection('orders')
+      .find({ 'user._id': ObjectId(this._id) })
+      .toArray();
+  }
 }
 
 module.exports = User;
