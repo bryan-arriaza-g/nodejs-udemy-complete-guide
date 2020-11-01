@@ -25,9 +25,13 @@ const start = async () => {
   app.use(express.static(path.join(rootDir, '..', 'public')));
 
   app.use((req, res, next) => {
-    User.findById('5f9e0c3a7d18b840d9bee681')
+    User.findById('5f9e395a37b64d89140bb1e9')
       .then((user) => {
-        req.user = new User(user.name, user.email, user.cart, user._id);
+        let { cart } = user;
+        if (cart === null) {
+          cart = { items: [] };
+        }
+        req.user = new User(user.name, user.email, cart, user._id);
         next();
       })
       .catch(console.error);

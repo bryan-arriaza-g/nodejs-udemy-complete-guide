@@ -77,21 +77,21 @@ exports.postOrder = (req, res) => {
     .then(() => {
       res.redirect('/orders');
     })
-    .catch((err) => console.error(err));
+    .catch((err) => console.log(err));
 };
 
-// exports.getOrders = (req, res) => {
-//   req.user
-//     .getOrders({ include: ['products'] })
-//     .then((orders) => {
-//       res.render('shop/orders', {
-//         path: '/orders',
-//         pageTitle: 'Your Orders',
-//         orders,
-//       });
-//     })
-//     .catch(() => console.log);
-// };
+exports.getOrders = (req, res) => {
+  req.user
+    .getOrders({ include: ['products'] })
+    .then((orders) => {
+      res.render('shop/orders', {
+        path: '/orders',
+        pageTitle: 'Your Orders',
+        orders,
+      });
+    })
+    .catch(() => console.log);
+};
 
 // exports.getCheckout = (req, res) => {
 //   res.render('shop/checkout', {

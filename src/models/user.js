@@ -3,7 +3,7 @@ const { getDB } = require('../util/database');
 
 class User {
   constructor(username, email, cart, id) {
-    this.username = username;
+    this.name = username;
     this.email = email;
     this.cart = cart;
     this._id = id ? ObjectId(id) : null;
@@ -69,9 +69,17 @@ class User {
 
   addOrder() {
     const db = getDB();
-    return db
-      .collection('orders')
-      .insertOne(this.cart)
+    return this.getCart()
+      .then((products) => {
+        const order = {
+          items: products,
+          user: {
+            _id: ObjectId(this._id),
+            name: this.name,
+          },
+        };
+        return db.collection('orders').insertOne(order);
+      })
       .then(() => {
         this.cart = { items: [] };
         return db
@@ -79,6 +87,11 @@ class User {
           .updateOne({ _id: ObjectId(this._id) }, { $set: { cart: { items: [] } } });
       });
   }
+
+  // getOrders() {
+  //   const db = getDB();
+  //   return db.collection('orders');
+  // }
 }
 
 module.exports = User;
