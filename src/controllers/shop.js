@@ -38,23 +38,18 @@ exports.getIndex = (req, res) => {
     .catch(console.error);
 };
 
-// exports.getCart = (req, res) => {
-//   req.user
-//     .getCart()
-//     .then((cart) => {
-//       return cart
-//         .getProducts()
-//         .then((cartProducts) => {
-//           res.render('shop/cart', {
-//             path: '/cart',
-//             pageTitle: 'Your Cart',
-//             products: cartProducts,
-//           });
-//         })
-//         .catch((err) => console.error(err));
-//     })
-//     .catch((err) => console.error(err));
-// };
+exports.getCart = (req, res) => {
+  req.user
+    .getCart()
+    .then((products) => {
+      res.render('shop/cart', {
+        path: '/cart',
+        pageTitle: 'Your Cart',
+        products,
+      });
+    })
+    .catch((err) => console.error(err));
+};
 
 exports.postCart = (req, res) => {
   const { productId } = req.body;
