@@ -27,7 +27,7 @@ const start = async () => {
   app.use((req, res, next) => {
     User.findById('5f9e0c3a7d18b840d9bee681')
       .then((user) => {
-        req.user = user;
+        req.user = new User(user.name, user.email, user.cart, user._id);
         next();
       })
       .catch(console.error);

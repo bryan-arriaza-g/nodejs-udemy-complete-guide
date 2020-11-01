@@ -33,3 +33,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 193. Creating New Users
 194. Storing the User in our Database
 195. Working on Cart Items & Orders
+196. Adding the "Add to Cart" Functionality
