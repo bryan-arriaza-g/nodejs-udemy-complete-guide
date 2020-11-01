@@ -36,24 +36,35 @@ class User {
     return db.collection('users').findOne({ _id: ObjectId(userId) });
   }
 
+  deleteItemFromCart(productId) {
+    const updatedCartItems = this.cart.items.filter((item) => {
+      return item.productId.toString() !== productId.toString();
+    });
+    const db = getDB();
+    return db
+      .collection('users')
+      .updateOne({ _id: ObjectId(this._id) }, { $set: { cart: { items: updatedCartItems } } });
+  }
+
   getCart() {
     const db = getDB();
-    const productIds = this.cart.items.map((item) => item.productId);
+    const productIds = this.cart.items.map((i) => {
+      return i.productId;
+    });
     return db
       .collection('products')
       .find({ _id: { $in: productIds } })
       .toArray()
       .then((products) => {
-        return products.map((product) => {
+        return products.map((p) => {
           return {
-            ...product,
-            quantity: this.cart.items.find((item) => {
-              return item.productId.toString() === product._id.toString();
+            ...p,
+            quantity: this.cart.items.find((i) => {
+              return i.productId.toString() === p._id.toString();
             }).quantity,
           };
         });
-      })
-      .catch(console.error);
+      });
   }
 }
 

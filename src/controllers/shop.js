@@ -48,7 +48,7 @@ exports.getCart = (req, res) => {
         products,
       });
     })
-    .catch((err) => console.error(err));
+    .catch(console.error);
 };
 
 exports.postCart = (req, res) => {
@@ -61,22 +61,15 @@ exports.postCart = (req, res) => {
     .catch(console.error);
 };
 
-// exports.postCartDeleteProduct = (req, res) => {
-//   const { productId } = req.body;
-//   req.user
-//     .getCart()
-//     .then((cart) => {
-//       return cart.getProducts({ where: { id: productId } });
-//     })
-//     .then((products) => {
-//       const product = products[0];
-//       product.cartItem.destroy();
-//     })
-//     .then(() => {
-//       res.redirect('/cart');
-//     })
-//     .catch((err) => console.error(err));
-// };
+exports.postCartDeleteProduct = (req, res) => {
+  const { productId } = req.body;
+  req.user
+    .deleteItemFromCart(productId)
+    .then(() => {
+      res.redirect('/cart');
+    })
+    .catch((err) => console.error(err));
+};
 
 // exports.postOrder = (req, res) => {
 //   let fetchedCart;
