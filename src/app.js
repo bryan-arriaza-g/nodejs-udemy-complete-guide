@@ -1,11 +1,11 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 // const User = require('./models/user');
 // Utils
 const rootDir = require('./util/path');
-const { mongoConnect } = require('./util/database');
 const User = require('./models/user');
 
 // Routes
@@ -42,11 +42,16 @@ const start = async () => {
 
   app.use('/', errorController.get404);
 
-  mongoConnect(() => {
-    app.listen(port, () => {
-      console.log(`Listening on port ${port}!!!!!!!!`);
-    });
-  });
+  mongoose
+    .connect(
+      'mongodb+srv://barriaza:34FtAsSQr3cv@cluster-east.coyk6.mongodb.net/node-complete-guide-shop?retryWrites=true&w=majority'
+    )
+    .then(() => {
+      app.listen(port, () => {
+        console.log(`Listening on port ${port}!!!!!!!!`);
+      });
+    })
+    .catch(console.error);
 };
 
 start();
