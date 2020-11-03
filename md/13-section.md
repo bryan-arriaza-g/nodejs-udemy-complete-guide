@@ -15,3 +15,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 208. Module Introduction
 209. What is Mongoose?
 210. Connecting to the MongoDB Server with Mongoose
+211. Creating the Product Schema
