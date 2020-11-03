@@ -18,3 +18,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 211. Creating the Product Schema
 212. Saving Data Through Mongoose
 213. Fetching All Products
+214. Fetching a Single Product
