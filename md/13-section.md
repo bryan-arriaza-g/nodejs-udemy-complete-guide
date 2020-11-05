@@ -22,3 +22,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 215. Updating Products
 216. Deleting Products
 217. Adding and Using a User Model
+218. Using Relations in Mongoose
