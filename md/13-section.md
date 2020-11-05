@@ -21,3 +21,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 214. Fetching a Single Product
 215. Updating Products
 216. Deleting Products
+217. Adding and Using a User Model

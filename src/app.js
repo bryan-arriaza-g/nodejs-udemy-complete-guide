@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-// const User = require('./models/user');
+const User = require('./models/user');
 // Utils
 const rootDir = require('./util/path');
 // const User = require('./models/user');
@@ -24,18 +24,14 @@ const start = async () => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(express.static(path.join(rootDir, '..', 'public')));
 
-  // app.use((req, res, next) => {
-  //   User.findById('5f9e395a37b64d89140bb1e9')
-  //     .then((user) => {
-  //       let { cart } = user;
-  //       if (cart === null) {
-  //         cart = { items: [] };
-  //       }
-  //       req.user = new User(user.name, user.email, cart, user._id);
-  //       next();
-  //     })
-  //     .catch(console.error);
-  // });
+  app.use((req, res, next) => {
+    User.findById('5fa36141fbf6dcbe9981fb2d')
+      .then((user) => {
+        req.user = user;
+        next();
+      })
+      .catch(console.error);
+  });
 
   app.use('/admin', adminRoutes);
   app.use(shopRoutes);
@@ -47,6 +43,18 @@ const start = async () => {
       'mongodb+srv://barriaza:34FtAsSQr3cv@cluster-east.coyk6.mongodb.net/node-complete-guide-shop?retryWrites=true&w=majority'
     )
     .then(() => {
+      User.findOne().then((userData) => {
+        if (!userData) {
+          const user = new User({
+            name: 'barriaza',
+            email: 'bryan.arriaza.g@gmail.com',
+            cart: {
+              items: [],
+            },
+          });
+          user.save();
+        }
+      });
       app.listen(port, () => {
         console.log(`Listening on port ${port}!!!!!!!!`);
       });
