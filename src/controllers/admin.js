@@ -71,6 +71,7 @@ exports.postDeleteProduct = (req, res) => {
 
 exports.getProducts = (req, res) => {
   Product.find()
+    .populate('userId')
     .then((products) => {
       res.render('admin/products', {
         prods: products,
