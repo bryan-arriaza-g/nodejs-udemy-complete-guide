@@ -16,3 +16,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 270. How Does Sending Emails Work?
 271. Using SendGrid
 272. Using Nodemailer to Send an Email
+273. Potential Limitation for Large Scale Apps
+274. Useful Resources & Links
