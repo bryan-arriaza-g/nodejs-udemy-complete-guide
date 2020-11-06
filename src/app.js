@@ -11,6 +11,7 @@ const rootDir = require('./util/path');
 // Routes
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const authRoutes = require('./routes/auth');
 const errorController = require('./controllers/error');
 
 const start = async () => {
@@ -35,6 +36,7 @@ const start = async () => {
 
   app.use('/admin', adminRoutes);
   app.use(shopRoutes);
+  app.use(authRoutes);
 
   app.use('/', errorController.get404);
 
