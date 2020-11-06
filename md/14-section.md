@@ -28,3 +28,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 242. Deleting a Cookie
 243. Fixing Some Minor Bugs
 244. Making "Add to Cart" Work Again
+245. Two Tiny Improvements

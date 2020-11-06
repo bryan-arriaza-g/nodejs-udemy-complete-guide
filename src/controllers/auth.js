@@ -13,14 +13,21 @@ exports.postLogin = (req, res) => {
     .then((user) => {
       req.session.isLoggedIn = true;
       req.session.user = user;
-      res.redirect('/');
+      req.session.save((err) => {
+        if (err) {
+          console.error(err);
+        }
+        res.redirect('/');
+      });
     })
     .catch(console.error);
 };
 
 exports.postLogout = (req, res) => {
   req.session.destroy((err) => {
-    console.error(err);
+    if (err) {
+      console.error(err);
+    }
     res.redirect('/');
   });
 };
