@@ -6,6 +6,7 @@
     "no-console": "off",
     "node/no-unsupported-features/es-syntax": "off",
     "no-underscore-dangle": "off",
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "consistent-return": "warn"
   }
 }
