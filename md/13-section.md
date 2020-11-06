@@ -30,3 +30,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 223. Creating & Getting Orders
 224. Storing All Order Related Data
 225. Clearing the Cart After Storing an Order
+226. Getting & Displaying the Orders
