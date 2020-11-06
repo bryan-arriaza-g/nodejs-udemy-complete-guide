@@ -1,6 +1,6 @@
+const User = require('../models/user');
+
 exports.getLogin = (req, res) => {
-  // const isLoggedIn = req.get('Cookie') ? req.get('Cookie').split('=')[1] === 'true' : false;
-  console.log(req.session.isLoggedIn);
   res.render('auth/login', {
     path: '/login',
     pageTitle: 'Login',
@@ -9,6 +9,18 @@ exports.getLogin = (req, res) => {
 };
 
 exports.postLogin = (req, res) => {
-  req.session.isLoggedIn = true;
-  res.redirect('/');
+  User.findById('5fa36141fbf6dcbe9981fb2d')
+    .then((user) => {
+      req.session.isLoggedIn = true;
+      req.session.user = user;
+      res.redirect('/');
+    })
+    .catch(console.error);
+};
+
+exports.postLogout = (req, res) => {
+  req.session.destroy((err) => {
+    console.error(err);
+    res.redirect('/');
+  });
 };

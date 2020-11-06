@@ -42,15 +42,6 @@ const start = async () => {
     })
   );
 
-  app.use((req, res, next) => {
-    User.findById('5fa36141fbf6dcbe9981fb2d')
-      .then((user) => {
-        req.user = user;
-        next();
-      })
-      .catch(console.error);
-  });
-
   app.use('/admin', adminRoutes);
   app.use(shopRoutes);
   app.use(authRoutes);
