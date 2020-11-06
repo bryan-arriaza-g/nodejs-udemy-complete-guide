@@ -63,18 +63,6 @@ const start = async () => {
   mongoose
     .connect(MONGODB_URI)
     .then(() => {
-      User.findOne().then((userData) => {
-        if (!userData) {
-          const user = new User({
-            name: 'barriaza',
-            email: 'bryan.arriaza.g@gmail.com',
-            cart: {
-              items: [],
-            },
-          });
-          user.save();
-        }
-      });
       app.listen(port, () => {
         console.log(`Listening on port ${port}!!!!!!!!`);
       });

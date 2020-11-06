@@ -32,7 +32,23 @@ exports.postLogin = (req, res) => {
 };
 
 exports.postSignup = (req, res) => {
-  res.redirect('/');
+  const { email, password } = req.body;
+  User.findOne({ email })
+    .then((userDoc) => {
+      if (userDoc) {
+        return res.redirect('/signup');
+      }
+      const user = new User({
+        email,
+        password,
+        cart: { items: [] },
+      });
+      return user.save();
+    })
+    .then(() => {
+      res.redirect('/login');
+    })
+    .catch(console.error);
 };
 
 exports.postLogout = (req, res) => {
