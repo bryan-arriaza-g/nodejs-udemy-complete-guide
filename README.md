@@ -20,3 +20,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 - #### Sección 13 : Working with Mongoose
 - #### Sección 14 : Sessions & Cookies
 - #### Sección 15 : Adding Authentication
+- #### Sección 16 : Sending Emails
