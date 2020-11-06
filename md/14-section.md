@@ -18,3 +18,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 232. Optional: Creating the Login Form
 233. Adding the Request Driven Login Solution
 234. Setting a Cookie
+235. Manipulating Cookies
+236. Configuring Cookies
