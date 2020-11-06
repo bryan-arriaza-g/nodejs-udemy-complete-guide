@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 const User = require('./models/user');
 // Utils
@@ -17,8 +18,14 @@ const errorController = require('./controllers/error');
 
 const start = async () => {
   const port = 3000;
+  const MONGODB_URI =
+    'mongodb+srv://barriaza:34FtAsSQr3cv@cluster-east.coyk6.mongodb.net/node-complete-guide-shop';
 
   const app = express();
+  const sessionStore = new MongoDBStore({
+    uri: MONGODB_URI,
+    collection: 'sessions',
+  });
 
   app.set('view engine', 'ejs');
   app.set('views', 'views');
@@ -31,6 +38,7 @@ const start = async () => {
       secret: 'ZKZ9Dl5ZxvErAy5I6QiFEL$t&D$0u5Bk&W4f5EZehdt3hha%a&n2hRP2rNCe1yCr',
       resave: false, // No save the session by each request
       saveUninitialized: false, // If not neccesary store because no change nothing
+      store: sessionStore,
     })
   );
 
@@ -50,9 +58,7 @@ const start = async () => {
   app.use('/', errorController.get404);
 
   mongoose
-    .connect(
-      'mongodb+srv://barriaza:34FtAsSQr3cv@cluster-east.coyk6.mongodb.net/node-complete-guide-shop?retryWrites=true&w=majority'
-    )
+    .connect(MONGODB_URI)
     .then(() => {
       User.findOne().then((userData) => {
         if (!userData) {
