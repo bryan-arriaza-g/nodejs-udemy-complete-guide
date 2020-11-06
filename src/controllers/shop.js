@@ -22,7 +22,6 @@ exports.getProduct = (req, res) => {
         product,
         pageTitle: product.title,
         path: '/products',
-        isAuthenticated: req.session.isLoggedIn,
       });
     })
     .catch(console.error);
