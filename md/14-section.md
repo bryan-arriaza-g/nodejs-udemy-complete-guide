@@ -22,3 +22,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 236. Configuring Cookies
 237. What is a Session?
 238. Initializing the Session Middleware
+239. Using the Session Middleware
