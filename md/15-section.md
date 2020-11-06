@@ -26,3 +26,7 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 260. Using a CSRF Token
 261. Adding CSRF Protection
 262. Fixing the Order Button
+263. Providing User Feedback
+264. Optional: Styling Error Messages
+265. Finishing the Flash Messages
+266. Adding Additional Flash Messages
