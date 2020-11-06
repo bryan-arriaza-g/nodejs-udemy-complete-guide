@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 const User = require('./models/user');
 // Utils
@@ -24,6 +25,14 @@ const start = async () => {
 
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(express.static(path.join(rootDir, '..', 'public')));
+
+  app.use(
+    session({
+      secret: 'ZKZ9Dl5ZxvErAy5I6QiFEL$t&D$0u5Bk&W4f5EZehdt3hha%a&n2hRP2rNCe1yCr',
+      resave: false, // No save the session by each request
+      saveUninitialized: false, // If not neccesary store because no change nothing
+    })
+  );
 
   app.use((req, res, next) => {
     User.findById('5fa36141fbf6dcbe9981fb2d')
