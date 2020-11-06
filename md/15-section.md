@@ -20,3 +20,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 254. Encrypting Passwords
 255. Adding a Tiny Code Improvement
 256. Adding the Signin Functionality
+257. Working on Route Protection
+258. Using Middleware to Protect Routes
