@@ -13,3 +13,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 17 : Advanced Authentication
 
 275. Module Introduction
+276. Resetting Passwords
