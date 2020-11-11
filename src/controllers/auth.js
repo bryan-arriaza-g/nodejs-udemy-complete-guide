@@ -95,9 +95,9 @@ exports.postSignup = (req, res) => {
           res.redirect('/login');
           return transporter.sendMail({
             to: email,
-            from: 'shop@nodejs-complete-guide.com',
+            from: 'shop@node-complete-guide.com',
             subject: 'Signup succeeded!',
-            html: '<h1>You successfully signed up :)</h1>',
+            html: '<h1>You successfully signed up!</h1>',
           });
         })
         .catch(console.error);
@@ -131,7 +131,7 @@ exports.getReset = (req, res) => {
 exports.postReset = (req, res) => {
   crypto.randomBytes(32, (err, buffer) => {
     if (err) {
-      console.error(err);
+      console.log(err);
       return res.redirect('/reset');
     }
     const token = buffer.toString('hex');
@@ -147,9 +147,9 @@ exports.postReset = (req, res) => {
       })
       .then(() => {
         res.redirect('/');
-        return transporter.sendMail({
+        transporter.sendMail({
           to: req.body.email,
-          from: 'shop@nodejs-complete-guide.com',
+          from: 'shop@node-complete-guide.com',
           subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>
