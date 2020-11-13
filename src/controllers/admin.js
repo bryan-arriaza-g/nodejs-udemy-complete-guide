@@ -53,22 +53,24 @@ exports.postEditProduct = (req, res) => {
   const { productId, title, imageUrl, description, price } = req.body;
   Product.findById(productId)
     .then((product) => {
+      if (product.userId !== req.user._id) {
+        return res.redirect('/');
+      }
       product.title = title;
       product.description = description;
       product.price = price;
       product.imageUrl = imageUrl;
-      return product.save();
-    })
-    .then(() => {
-      console.log('Updated Product !!!');
-      res.redirect('/admin/products');
+      return product.save().then(() => {
+        console.log('Updated Product !!!');
+        res.redirect('/admin/products');
+      });
     })
     .catch((err) => console.error(err));
 };
 
 exports.postDeleteProduct = (req, res) => {
   const { productId } = req.body;
-  Product.findByIdAndRemove(productId)
+  Product.deleteOne({ _id: productId, userId: req.user._id })
     .then(() => {
       res.redirect('/admin/products');
     })
