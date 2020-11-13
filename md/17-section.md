@@ -18,3 +18,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 278. Creating the Token
 279. Creating the Reset Password Form
 280. Adding Logic to Update the Password
+281. Why we Need Authorization
+282. Adding Authorization
