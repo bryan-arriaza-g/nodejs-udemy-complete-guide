@@ -21,3 +21,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 281. Why we Need Authorization
 282. Adding Authorization
 283. Adding Protection to Post Actions
+284. Why Editing Fails
