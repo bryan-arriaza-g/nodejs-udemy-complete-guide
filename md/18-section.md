@@ -13,3 +13,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 18 : Understanding Validation
 
 287. Module Introduction
+288. Why Should We Use Validation?
+289. How to Validate Input?
