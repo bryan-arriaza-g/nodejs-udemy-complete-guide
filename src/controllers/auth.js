@@ -82,7 +82,7 @@ exports.postSignup = (req, res) => {
     return res.status(422).render('auth/signup', {
       path: '/signup',
       pageTitle: 'Signup',
-      errorMessage: errors.array(),
+      errorMessage: errors.array()[0].msg,
     });
   }
   User.findOne({ email })
