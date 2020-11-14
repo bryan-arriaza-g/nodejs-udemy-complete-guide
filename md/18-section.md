@@ -18,3 +18,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 290. Setup & Basic Validation
 291. Using Validation Error Messages
 292. Built-In & Custom Validators
+293. More Validators
