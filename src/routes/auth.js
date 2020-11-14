@@ -13,7 +13,16 @@ router.post('/login', authController.postLogin);
 
 router.post(
   '/signup',
-  check('email').isEmail().withMessage('Invalid email'),
+  check('email')
+    .isEmail()
+    .withMessage('Invalid email')
+    .custom((value, { req }) => {
+      if (value === 'test@test.com') {
+        console.log(req.body);
+        throw new Error('This email address if forbidden.');
+      }
+      return true;
+    }),
   authController.postSignup
 );
 
