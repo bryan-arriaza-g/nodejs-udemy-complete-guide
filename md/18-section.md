@@ -24,3 +24,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 296. Keeping User Input
 297. Adding Conditional CSS Classes
 298. Adding Validation to Login
+299. Sanitizing Data
