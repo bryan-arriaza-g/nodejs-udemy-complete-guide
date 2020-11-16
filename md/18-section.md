@@ -27,3 +27,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 299. Sanitizing Data
 300. Validating Product Addition
 301. Validating Product Editing
+302. Wrap Up
+303. Useful Resources & Links
