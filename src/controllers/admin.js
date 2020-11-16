@@ -8,6 +8,7 @@ exports.getAddProduct = (req, res) => {
     editing: false,
     hasError: false,
     errorMessage: null,
+    validationErrors: [],
   });
 };
 
@@ -15,7 +16,6 @@ exports.postAddProduct = (req, res) => {
   const { title, imageUrl, price, description } = req.body;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log(errors);
     res.status(422).render('admin/edit-product', {
       pageTitle: 'Add Product',
       path: '/admin/add-product',
@@ -28,6 +28,7 @@ exports.postAddProduct = (req, res) => {
         description,
       },
       errorMessage: errors.array()[0].msg,
+      validationErrors: errors.array(),
     });
   }
   const product = new Product({
@@ -64,6 +65,7 @@ exports.getEditProduct = (req, res) => {
             hasError: false,
             product,
             errorMessage: null,
+            validationErrors: [],
           });
         }
       })
@@ -73,6 +75,24 @@ exports.getEditProduct = (req, res) => {
 
 exports.postEditProduct = (req, res) => {
   const { productId, title, imageUrl, description, price } = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(422).render('admin/edit-product', {
+      pageTitle: 'Edit Product',
+      path: '/admin/add-product',
+      editing: true,
+      hasError: true,
+      product: {
+        _id: productId,
+        title,
+        imageUrl,
+        price,
+        description,
+      },
+      errorMessage: errors.array()[0].msg,
+      validationErrors: errors.array(),
+    });
+  }
   Product.findById(productId)
     .then((product) => {
       if (product.userId.toString() !== req.user._id.toString()) {
@@ -109,6 +129,7 @@ exports.getProducts = (req, res) => {
         path: '/admin/products',
         hasError: false,
         errorMessage: null,
+        validationErrors: [],
       });
     })
     .catch(console.error);
