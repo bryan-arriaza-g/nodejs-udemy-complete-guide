@@ -17,3 +17,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 306. Analyzing the Error Handling in the Current Project
 307. Errors - Some Theory
 308. Throwing Errors in Code
+309. Returning Error Pages

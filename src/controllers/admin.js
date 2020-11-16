@@ -44,7 +44,9 @@ exports.postAddProduct = (req, res) => {
       console.log('Created Product !!!');
       res.redirect('/admin/products');
     })
-    .catch(console.error);
+    .catch(() => {
+      res.redirect('/500');
+    });
 };
 
 exports.getEditProduct = (req, res) => {
