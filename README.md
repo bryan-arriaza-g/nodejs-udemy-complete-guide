@@ -23,3 +23,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 - #### Sección 16 : Sending Emails
 - #### Sección 17 : Advanced Authentication
 - #### Sección 18 : Understanding Validation
+- #### Sección 19 : Error Handling
