@@ -13,3 +13,7 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 19 : Error Handling
 
 304. Module Introduction
+305. Types of Errors & Error Handling
+306. Analyzing the Error Handling in the Current Project
+307. Errors - Some Theory
+308. Throwing Errors in Code
