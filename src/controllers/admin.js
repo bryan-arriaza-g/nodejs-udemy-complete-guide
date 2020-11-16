@@ -12,7 +12,7 @@ exports.getAddProduct = (req, res) => {
   });
 };
 
-exports.postAddProduct = (req, res) => {
+exports.postAddProduct = (req, res, next) => {
   const { title, imageUrl, price, description } = req.body;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -44,8 +44,10 @@ exports.postAddProduct = (req, res) => {
       console.log('Created Product !!!');
       res.redirect('/admin/products');
     })
-    .catch(() => {
-      res.redirect('/500');
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
     });
 };
 
