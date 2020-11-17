@@ -21,3 +21,7 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 310. Using the Express.js Error Handling Middleware
 311. Updating the App
 312. Using the Error Handling Middleware Correctly
+313. Status Codes
+314. Available Status Codes
+315. Wrap Up
+316. Useful Resources & Links
