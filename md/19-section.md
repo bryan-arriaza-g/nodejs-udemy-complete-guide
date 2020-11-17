@@ -19,3 +19,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 308. Throwing Errors in Code
 309. Returning Error Pages
 310. Using the Express.js Error Handling Middleware
+311. Updating the App

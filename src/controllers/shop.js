@@ -1,7 +1,7 @@
 const Product = require('../models/product');
 const Order = require('../models/order');
 
-exports.getProducts = (req, res) => {
+exports.getProducts = (req, res, next) => {
   Product.find()
     .then((products) => {
       res.render('shop/product-list', {
@@ -10,10 +10,14 @@ exports.getProducts = (req, res) => {
         path: '/products',
       });
     })
-    .catch(console.error);
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
-exports.getProduct = (req, res) => {
+exports.getProduct = (req, res, next) => {
   const { productId } = req.params;
   Product.findById(productId)
     .then((product) => {
@@ -23,10 +27,14 @@ exports.getProduct = (req, res) => {
         path: '/products',
       });
     })
-    .catch(console.error);
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
-exports.getIndex = (req, res) => {
+exports.getIndex = (req, res, next) => {
   Product.find()
     .then((products) => {
       res.render('shop/index', {
@@ -35,10 +43,14 @@ exports.getIndex = (req, res) => {
         path: '/',
       });
     })
-    .catch(console.error);
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
-exports.getCart = (req, res) => {
+exports.getCart = (req, res, next) => {
   req.user
     .populate('cart.items.productId')
     .execPopulate()
@@ -50,10 +62,14 @@ exports.getCart = (req, res) => {
         products,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
-exports.postCart = (req, res) => {
+exports.postCart = (req, res, next) => {
   const { productId } = req.body;
   Product.findById(productId)
     .then((product) => {
@@ -62,20 +78,28 @@ exports.postCart = (req, res) => {
     .then(() => {
       res.redirect('/cart');
     })
-    .catch(console.error);
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
-exports.postCartDeleteProduct = (req, res) => {
+exports.postCartDeleteProduct = (req, res, next) => {
   const { productId } = req.body;
   req.user
     .removeFromCart(productId)
     .then(() => {
       res.redirect('/cart');
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
-exports.postOrder = (req, res) => {
+exports.postOrder = (req, res, next) => {
   req.user
     .populate('cart.items.productId')
     .execPopulate()
@@ -98,10 +122,14 @@ exports.postOrder = (req, res) => {
     .then(() => {
       res.redirect('/orders');
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
 
-exports.getOrders = (req, res) => {
+exports.getOrders = (req, res, next) => {
   Order.find({ 'user.userId': req.user._id })
     .then((orders) => {
       res.render('shop/orders', {
@@ -110,5 +138,9 @@ exports.getOrders = (req, res) => {
         orders,
       });
     })
-    .catch(() => console.log);
+    .catch((err) => {
+      const error = new Error(err);
+      error.httpStatusCode = 500;
+      return next(error);
+    });
 };
