@@ -159,14 +159,20 @@ exports.getInvoice = (req, res, next) => {
       }
       const invoiceName = `invoice-${orderId}.pdf`;
       const invoicePath = path.join('data', 'invoices', invoiceName);
-      return fs.readFile(invoicePath, (err, data) => {
-        if (err) {
-          return next(err);
-        }
-        res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`);
-        res.send(data);
-      });
+      // Synchronous download file : wait until that file is complete
+      // return fs.readFile(invoicePath, (err, data) => {
+      //   if (err) {
+      //     return next(err);
+      //   }
+      //   res.setHeader('Content-Type', 'application/pdf');
+      //   res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`);
+      //   res.send(data);
+      // });
+      // Stream : download file by chunks
+      const file = fs.createReadStream(invoicePath);
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `inline; filename="${invoiceName}"`);
+      file.pipe(res);
     })
     .catch((err) => {
       return next(err);
