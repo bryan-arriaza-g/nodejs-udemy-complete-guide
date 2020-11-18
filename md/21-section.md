@@ -17,3 +17,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 338. Retrieving a Chunk of Data
 339. Skip & Limit with SQL
 340. Preparing Pagination Data on the Server
+341. Adding Dynamic Pagination Buttons
