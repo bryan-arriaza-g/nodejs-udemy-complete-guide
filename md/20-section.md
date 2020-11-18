@@ -18,3 +18,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 320. Handling File Uploads with Multer
 321. Configuring Multer to Adjust Filename & Filepath
 322. Filtering Files by Mimetype
+323. Storing File Data in the Database
