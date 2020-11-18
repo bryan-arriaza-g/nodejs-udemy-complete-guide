@@ -25,3 +25,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 - #### Sección 18 : Understanding Validation
 - #### Sección 19 : Error Handling
 - #### Sección 20 : File Upload & Download
+- #### Sección 21 : Adding Pagination
