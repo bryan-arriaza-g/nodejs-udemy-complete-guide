@@ -13,3 +13,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 ### Sección 22 : Understanding Async Requests
 
 345. Module Introduction
+346. What are Async Requests?
+347. Adding Client Side JS Code
