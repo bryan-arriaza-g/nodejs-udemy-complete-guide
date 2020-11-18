@@ -15,3 +15,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 345. Module Introduction
 346. What are Async Requests?
 347. Adding Client Side JS Code
+348. The JSON Data Format
+349. Sending & Handling Background Requests
