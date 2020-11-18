@@ -29,3 +29,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 331. Generating .pdf Files with Order Data
 332. Deleting Files
 333. Fixing Invoice Links
+334. Wrap Up
+335. Useful Resources & Links
