@@ -15,3 +15,5 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 352. Module Introduction
 353. How Payments Work
 354. Adding a Checkout Page
+355. Using Stripe in Your App
+356. Useful Resources & Links
