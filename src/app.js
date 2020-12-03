@@ -7,6 +7,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
+const helmet = require('helmet');
 
 const User = require('./models/user');
 // Utils
@@ -99,6 +100,8 @@ const start = async () => {
 
   app.get('/500', errorController.get500);
   app.use(errorController.get404);
+
+  app.use(helmet());
 
   app.use((error, req, res) => {
     res.status(500).render('500', {
