@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+// const https = require('https');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -33,6 +35,9 @@ const start = async () => {
     collection: 'sessions',
   });
   const csrfProtection = csrf();
+
+  // const privateKey = fs.readFileSync('server.key');
+  // const certificate = fs.readFileSync('server.cert');
 
   app.set('view engine', 'ejs');
   app.set('views', 'views');
@@ -123,6 +128,7 @@ const start = async () => {
   mongoose
     .connect(MONGODB_URI)
     .then(() => {
+      // https.createServer({ key: privateKey, cert: certificate }, app)
       app.listen(port, () => {
         console.log(`Listening on port ${port}!!!!!!!!`);
       });
