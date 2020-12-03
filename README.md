@@ -28,3 +28,4 @@ Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authen
 - #### Sección 21 : Adding Pagination
 - #### Sección 22 : Understanding Async Requests
 - #### Sección 23 : Adding Payments
+- #### Sección 29 : Deploying our App
