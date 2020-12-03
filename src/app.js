@@ -8,6 +8,7 @@ const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
 const helmet = require('helmet');
+const compression = require('compression');
 
 const User = require('./models/user');
 // Utils
@@ -102,6 +103,7 @@ const start = async () => {
   app.use(errorController.get404);
 
   app.use(helmet());
+  app.use(compression());
 
   app.use((error, req, res) => {
     res.status(500).render('500', {
