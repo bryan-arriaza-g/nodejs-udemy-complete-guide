@@ -14,10 +14,9 @@ const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
 
-const User = require('./models/user');
 // Utils
 const rootDir = require('./util/path');
-// const User = require('./models/user');
+const User = require('./models/user');
 
 // Routes
 const adminRoutes = require('./routes/admin');
