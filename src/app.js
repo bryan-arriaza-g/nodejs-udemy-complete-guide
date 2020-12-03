@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -9,6 +10,7 @@ const flash = require('connect-flash');
 const multer = require('multer');
 const helmet = require('helmet');
 const compression = require('compression');
+const morgan = require('morgan');
 
 const User = require('./models/user');
 // Utils
@@ -102,8 +104,13 @@ const start = async () => {
   app.get('/500', errorController.get500);
   app.use(errorController.get404);
 
+  const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log', 'logging.log'), {
+    flags: 'a',
+  });
+
   app.use(helmet());
   app.use(compression());
+  app.use(morgan('combined', { stream: accessLogStream }));
 
   app.use((error, req, res) => {
     res.status(500).render('500', {

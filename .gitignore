@@ -50,3 +50,7 @@ Thumbs.db
 *.iml
 *.idea
 package-lock.json
+
+# Custom
+
+src/log/logging.log
