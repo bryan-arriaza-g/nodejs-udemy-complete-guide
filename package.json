@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/app.js",
+    "start": "node src/app.js",
     "start-server": "nodemon app.js",
+    "start:dev": "nodemon src/app.js",
     "precommit": "npm run lint && lint-staged",
     "lint": "eslint src",
     "format": "prettier --write \"src/**/*.+(js|md|ts|css|sass|less|graphql|yml|yaml|scss|json|vue)\""

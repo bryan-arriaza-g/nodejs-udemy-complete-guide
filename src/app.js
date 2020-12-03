@@ -20,9 +20,8 @@ const authRoutes = require('./routes/auth');
 const errorController = require('./controllers/error');
 
 const start = async () => {
-  const port = 3000;
-  const MONGODB_URI =
-    'mongodb+srv://barriaza:34FtAsSQr3cv@cluster-east.coyk6.mongodb.net/node-complete-guide-shop';
+  const port = process.env.PORT || 3000;
+  const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster-east.coyk6.mongodb.net/${process.env.MONGO_DBNAME}`;
 
   const app = express();
   const sessionStore = new MongoDBStore({
@@ -62,7 +61,7 @@ const start = async () => {
 
   app.use(
     session({
-      secret: 'ZKZ9Dl5ZxvErAy5I6QiFEL$t&D$0u5Bk&W4f5EZehdt3hha%a&n2hRP2rNCe1yCr',
+      secret: process.env.SESSION_KEY,
       resave: false, // No save the session by each request
       saveUninitialized: false, // If not neccesary store because no change nothing
       store: sessionStore,

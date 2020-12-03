@@ -4,3 +4,4 @@ node_modules
 *.css
 *.md
 src/data/**
+nodemon.json

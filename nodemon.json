@@ -1,0 +1,11 @@
+{
+  "env": {
+    "MONGO_USER": "barriaza",
+    "MONGO_PASSWORD": "34FtAsSQr3cv",
+    "MONGO_DBNAME": "node-complete-guide-shop",
+    "PORT": "3000",
+    "SESSION_KEY": "ZKZ9Dl5ZxvErAy5I6QiFEL$t&D$0u5Bk&W4f5EZehdt3hha%a&n2hRP2rNCe1yCr",
+    "SENDGRID_KEY": "THISISTHEAPIKEY-nodemailer-sendgrid-transport",
+    "STRIPE_KEY": "STRIPEKEY"
+  }
+}
